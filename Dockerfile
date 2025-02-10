@@ -10,9 +10,9 @@ RUN python3 -m pip install --upgrade poetry
 
 RUN apt update && apt install lshw nvme-cli -y
 
-COPY pyproject.toml .
+COPY pyproject.toml poetry.lock ./
 
-RUN poetry install
+RUN poetry install --no-root
 
 COPY . .
 
